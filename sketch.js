@@ -8,8 +8,14 @@ let player;
 let camX = 0;
 let camY = 0;
 
+let starSound;
+
 function preload() {
   worldData = loadJSON("world.json");
+}
+
+function mousePressed() {
+  userStartAudio();
 }
 
 function setup() {
