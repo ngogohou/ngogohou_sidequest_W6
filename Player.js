@@ -5,6 +5,8 @@ class Player {
     this.s = speed ?? 1.8; // slower, meditative pace
     this.vx = 0;
     this.vy = 0;
+
+    this.trail = [];
   }
 
   updateInput() {
@@ -26,19 +28,35 @@ class Player {
 
     this.x += this.vx;
     this.y += this.vy;
+
+    // add trail particle
+    if (abs(this.vx) + abs(this.vy) > 0.3) {
+      this.trail.push({
+        x: this.x,
+        y: this.y,
+        life: 40,
+      });
+    }
+
+    if (this.trail.length > 80) this.trail.shift();
   }
 
   draw() {
+    // trail particles
     noStroke();
+    for (let p of this.trail) {
+      fill(180, 220, 255, p.life * 2);
+      ellipse(p.x, p.y, 6);
+      p.life--;
+    }
 
-    // soft glow
+    // glow
     for (let i = 40; i > 0; i -= 8) {
       fill(120, 180, 255, 20);
       ellipse(this.x, this.y, i);
     }
 
-    // core
-    fill(180, 220, 255);
+    fill(200, 230, 255);
     ellipse(this.x, this.y, 14);
   }
 }
