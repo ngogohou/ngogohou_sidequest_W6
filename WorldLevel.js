@@ -95,10 +95,6 @@ class WorldLevel {
 
       if (d < 60 && !hs.found) {
         hs.found = true;
-
-        if (starSound && !starSound.isPlaying()) {
-          starSound.play();
-        }
       }
 
       if (hs.found) {

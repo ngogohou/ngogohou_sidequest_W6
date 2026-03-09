@@ -8,14 +8,11 @@ let player;
 let camX = 0;
 let camY = 0;
 
-let starSound;
+let spaceMusic;
 
 function preload() {
   worldData = loadJSON("world.json");
-}
-
-function mousePressed() {
-  userStartAudio();
+  spaceMusic = loadSound("SpaceMusic.m4a");
 }
 
 function setup() {
