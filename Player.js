@@ -39,6 +39,12 @@ class Player {
     }
 
     if (this.trail.length > 80) this.trail.shift();
+
+    // limit max speed
+    this.vx = constrain(this.vx, -4, 4);
+    this.vy = constrain(this.vy, -4, 4);
+    this.vx *= 0.92;
+    this.vy *= 0.92;
   }
 
   draw() {
