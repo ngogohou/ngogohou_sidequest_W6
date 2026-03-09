@@ -59,6 +59,19 @@ class WorldLevel {
       ellipse(s.x, s.y, s.size);
     }
 
+    for (const p of this.planets) {
+      let d = dist(player.x, player.y, p.x, p.y);
+
+      if (d < p.size * 2) {
+        let force = map(d, p.size * 2, p.size, 0.02, 0.08);
+
+        let angle = atan2(p.y - player.y, p.x - player.x);
+
+        player.vx += cos(angle) * force;
+        player.vy += sin(angle) * force;
+      }
+    }
+
     // 🪐 Planets (draw BEFORE hidden stars so they feel distant)
     for (const p of this.planets) {
       push();
@@ -95,6 +108,7 @@ class WorldLevel {
 
       if (d < 60 && !hs.found) {
         hs.found = true;
+        if (starSound) starSound.play();
       }
 
       if (hs.found) {
