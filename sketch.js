@@ -8,11 +8,8 @@ let player;
 let camX = 0;
 let camY = 0;
 
-let starSound;
-
 function preload() {
   worldData = loadJSON("world.json");
-  starSound = loadSound("star.wav");
 }
 
 function setup() {
@@ -24,8 +21,6 @@ function setup() {
 
   camX = player.x - width / 2;
   camY = player.y - height / 2;
-
-  userStartAudio(); // enables sound after interaction
 }
 
 function draw() {
