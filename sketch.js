@@ -12,7 +12,7 @@ let spaceMusic;
 
 function preload() {
   worldData = loadJSON("world.json");
-  spaceMusic = loadSound("assets/spacemusic-aflrxcfz_7kJ2L3eR.mp3");
+  spaceMusic = loadSound("assets/spacemusic.mp3");
 }
 
 function setup() {
