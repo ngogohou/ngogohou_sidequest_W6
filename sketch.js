@@ -54,7 +54,7 @@ function draw() {
   pop();
 }
 
-function mousePressed() {
+function keyPressed() {
   userStartAudio();
 
   if (!spaceMusic.isPlaying()) {
