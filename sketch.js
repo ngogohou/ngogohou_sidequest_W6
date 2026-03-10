@@ -53,3 +53,12 @@ function draw() {
   player.draw();
   pop();
 }
+
+function mousePressed() {
+  userStartAudio();
+
+  if (!spaceMusic.isPlaying()) {
+    spaceMusic.setVolume(0.5);
+    spaceMusic.loop();
+  }
+}
