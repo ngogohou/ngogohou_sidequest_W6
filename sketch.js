@@ -58,7 +58,6 @@ function mousePressed() {
   userStartAudio();
 
   if (!spaceMusic.isPlaying()) {
-    spaceMusic.setVolume(5);
     spaceMusic.loop();
   }
 }
